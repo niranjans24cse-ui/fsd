@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Voting Form Validation</title>
+</head>
+<body>
+
+<h1><center>Voting Form Validation</center></h1>
+<center>
+<form onsubmit="return formValidate()">
+<label>NAME: </label><br>
+<input type="text" id="name" name="fname" required><br><br>
+<label>AGE: </label><br>
+<input type="number" id="age" name="fage" required><br><br>
+<label>EMAIL: </label><br>
+<input type="email" id="email" name="femail" required><br><br>
+<label>VOTERID: </label><br>
+<input type="text" id="vid" name="fid" required><br><br>
+<label>PASSWORD: </label><br>
+<input type="password" id="password" name="fpassword" required><br><br>
+<input type="submit" value="Submit">
+</form>
+</center>
+<script>
+function formValidate(){
+
+   let name = document.getElementById("name").value;
+   let age = document.getElementById("age").value;
+   let email = document.getElementById("email").value;
+   let vid = document.getElementById("vid").value;
+   let password = document.getElementById("password").value;
+
+   if(name === "" || age === "" || email === "" || vid === "" || password === ""){
+        alert("All fields are required");
+        return false;
+   }
+
+   if(age < 18){
+        alert("Your age is not eligible for voting");
+        return false;
+   }
+
+   if(vid.length < 10){
+        alert("Enter a valid Voter ID (minimum 10 characters)");
+        return false;
+   }
+
+   if(password.length < 6){
+        alert("Password must be at least 6 characters");
+        return false;
+   }
+
+   alert("Form submitted successfully");
+   return true;
+}
+</script>
+
+</body>
+</html>
